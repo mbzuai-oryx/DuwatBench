@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="DuwatBench: A benchmark for Arabic calligraphy understanding in multimodal large language models">
+  <meta name="keywords" content="Arabic, Calligraphy, OCR, Benchmark, Multimodal, Vision-Language, NLP, MBZUAI">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DuwatBench: Arabic Calligraphy Benchmark</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <style>
+    .publication-title {
+      font-family: 'Google Sans', sans-serif;
+    }
+    .publication-authors {
+      font-family: 'Google Sans', sans-serif;
+    }
+    .publication-venue {
+      color: #555;
+      font-family: 'Google Sans', sans-serif;
+    }
+    .link-block a {
+      margin: 0 5px;
+    }
+    .teaser .hero-body {
+      padding-top: 0;
+      padding-bottom: 3rem;
+    }
+    .teaser-image {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    }
+    .arabic-text {
+      font-family: 'Amiri', serif;
+      direction: rtl;
+      font-size: 1.5rem;
+      color: #b8860b;
+    }
+    .results-table {
+      font-size: 0.9rem;
+    }
+    .results-table th {
+      background-color: #363636;
+      color: white;
+    }
+    .results-table .best {
+      font-weight: bold;
+      color: #3273dc;
+    }
+    .model-badge {
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 12px;
+      margin-left: 5px;
+    }
+    .open-badge {
+      background-color: #e8f5e9;
+      color: #2e7d32;
+    }
+    .closed-badge {
+      background-color: #fce4ec;
+      color: #c62828;
+    }
+    .author-block {
+      display: inline-block;
+    }
+    .publication-links {
+      margin-top: 1.5rem;
+    }
+    .contributor-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 0.5rem;
+    }
+    .contributor-card {
+      text-align: center;
+      padding: 1rem;
+    }
+    .contributor-card a {
+      color: #363636;
+    }
+    .contributor-card a:hover {
+      color: #3273dc;
+    }
+    pre {
+      background-color: #f5f5f5;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    .stats-box {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 15px;
+      text-align: center;
+      margin: 0.5rem;
+    }
+    .stats-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+    .stats-label {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+    .style-card {
+      background: #363636;
+      color: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      text-align: center;
+      margin: 0.5rem;
+    }
+    .style-arabic {
+      font-family: 'Amiri', serif;
+      font-size: 1.8rem;
+      color: #b8860b;
+    }
+    .sample-grid img {
+      border-radius: 8px;
+      margin: 5px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    footer {
+      padding: 2rem;
+      background: #363636;
+      color: white;
+    }
+    footer a {
+      color: #b8860b;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Title Section -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            <span style="color: #667eea;">Duwat</span>Bench
+          </h1>
+          <p class="arabic-text">دواة - معيار الخط العربي</p>
+          <h2 class="subtitle is-4" style="margin-top: 1rem;">
+            Bridging Language and Visual Heritage through an Arabic Calligraphy Benchmark for Multimodal Understanding
+          </h2>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">MBZUAI</span>
+          </div>
+
+          <div class="publication-links">
+            <!-- PDF Link -->
+            <span class="link-block">
+              <a href="https://arxiv.org/abs/XXXX.XXXXX" class="button is-dark is-rounded">
+                <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                <span>Paper</span>
+              </a>
+            </span>
+            <!-- arXiv Link -->
+            <span class="link-block">
+              <a href="https://arxiv.org/abs/XXXX.XXXXX" class="button is-dark is-rounded">
+                <span class="icon"><i class="ai ai-arxiv"></i></span>
+                <span>arXiv</span>
+              </a>
+            </span>
+            <!-- Code Link -->
+            <span class="link-block">
+              <a href="https://github.com/mbzuai-oryx/DuwatBench" class="button is-dark is-rounded">
+                <span class="icon"><i class="fab fa-github"></i></span>
+                <span>Code</span>
+              </a>
+            </span>
+            <!-- Dataset Link -->
+            <span class="link-block">
+              <a href="https://huggingface.co/datasets/MBZUAI/DuwatBench" class="button is-dark is-rounded">
+                <span class="icon"><i class="fas fa-database"></i></span>
+                <span>Dataset</span>
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Teaser Image -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="figures/teaser.png" alt="DuwatBench Teaser" class="teaser-image">
+      <h2 class="subtitle has-text-centered" style="margin-top: 1.5rem;">
+        <strong>DuwatBench</strong> evaluates multimodal models on Arabic calligraphy recognition across 6 classical styles with 1,050+ curated samples.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-multiline is-centered">
+      <div class="column is-3">
+        <div class="stats-box">
+          <div class="stats-number">1,050+</div>
+          <div class="stats-label">Curated Samples</div>
+        </div>
+      </div>
+      <div class="column is-3">
+        <div class="stats-box">
+          <div class="stats-number">6</div>
+          <div class="stats-label">Calligraphy Styles</div>
+        </div>
+      </div>
+      <div class="column is-3">
+        <div class="stats-box">
+          <div class="stats-number">13</div>
+          <div class="stats-label">Models Evaluated</div>
+        </div>
+      </div>
+      <div class="column is-3">
+        <div class="stats-box">
+          <div class="stats-number">1,400+</div>
+          <div class="stats-label">Unique Words</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Abstract -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-10">
+        <h2 class="title is-3 has-text-centered">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Arabic calligraphy represents one of the richest visual traditions of the Arabic language, yet current benchmarks for multimodal large language models (MLLMs) largely overlook this domain. We introduce <strong>DuwatBench</strong>, a comprehensive benchmark of 1,050+ curated samples spanning six classical and modern calligraphic styles: Thuluth, Diwani, Kufic, Naskh, Ruq'ah, and Nasta'liq.
+          </p>
+          <p>
+            Unlike existing Arabic OCR datasets that focus on clean printed or handwritten text, DuwatBench targets real-world calligraphy images featuring complex artistic backgrounds, dense ligatures, and stylistic variations that challenge standard recognition systems.
+          </p>
+          <p>
+            Each sample includes full text transcription, style labels, theme categories, and bounding box annotations for individual text instances. We evaluate 13 state-of-the-art models—8 open-source and 5 closed-source—using five complementary metrics with Arabic-aware normalization.
+          </p>
+          <p>
+            Our results reveal significant challenges: the best-performing model (<strong>Gemini-2.5-flash</strong>) achieves only 56.1% exact match accuracy, with most models showing CER above 60%. These findings highlight a critical gap in current MLLMs' ability to handle culturally significant visual text.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sample Images -->
+<section class="section" style="background-color: #f5f5f5;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Sample Calligraphy Images</h2>
+    <div class="columns is-multiline is-centered sample-grid">
+      <div class="column is-4">
+        <img src="figures/sample_thuluth.png" alt="Thuluth Style">
+        <p class="has-text-centered"><strong>Thuluth</strong> - الثلث</p>
+      </div>
+      <div class="column is-4">
+        <img src="figures/sample_diwani.png" alt="Diwani Style">
+        <p class="has-text-centered"><strong>Diwani</strong> - الديواني</p>
+      </div>
+      <div class="column is-4">
+        <img src="figures/sample_kufic.png" alt="Kufic Style">
+        <p class="has-text-centered"><strong>Kufic</strong> - الكوفي</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Calligraphy Styles -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Six Calligraphic Styles</h2>
+    <div class="columns is-multiline is-centered">
+      <div class="column is-4">
+        <div class="style-card">
+          <div class="style-arabic">الثلث</div>
+          <h4 class="is-size-5" style="color: white;"><strong>Thuluth</strong></h4>
+          <p>699 samples (67%)</p>
+        </div>
+      </div>
+      <div class="column is-4">
+        <div class="style-card">
+          <div class="style-arabic">الديواني</div>
+          <h4 class="is-size-5" style="color: white;"><strong>Diwani</strong></h4>
+          <p>258 samples (24%)</p>
+        </div>
+      </div>
+      <div class="column is-4">
+        <div class="style-card">
+          <div class="style-arabic">الكوفي</div>
+          <h4 class="is-size-5" style="color: white;"><strong>Kufic</strong></h4>
+          <p>62 samples (6%)</p>
+        </div>
+      </div>
+      <div class="column is-4">
+        <div class="style-card">
+          <div class="style-arabic">النسخ</div>
+          <h4 class="is-size-5" style="color: white;"><strong>Naskh</strong></h4>
+          <p>15 samples (1%)</p>
+        </div>
+      </div>
+      <div class="column is-4">
+        <div class="style-card">
+          <div class="style-arabic">الرقعة</div>
+          <h4 class="is-size-5" style="color: white;"><strong>Ruq'ah</strong></h4>
+          <p>10 samples (1%)</p>
+        </div>
+      </div>
+      <div class="column is-4">
+        <div class="style-card">
+          <div class="style-arabic">النستعليق</div>
+          <h4 class="is-size-5" style="color: white;"><strong>Nasta'liq</strong></h4>
+          <p>6 samples (1%)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Results Table -->
+<section class="section" style="background-color: #f5f5f5;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Benchmark Results</h2>
+    <p class="has-text-centered" style="margin-bottom: 2rem;">Performance of 13 models on DuwatBench (Full Image Evaluation)</p>
+
+    <div class="table-container">
+      <table class="table is-striped is-hoverable is-fullwidth results-table">
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>Type</th>
+            <th>CER ↓</th>
+            <th>WER ↓</th>
+            <th>chrF ↑</th>
+            <th>Exact Match ↑</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Gemini-2.5-flash</strong></td>
+            <td><span class="model-badge closed-badge">Closed</span></td>
+            <td class="best">0.316</td>
+            <td class="best">0.416</td>
+            <td class="best">59.96</td>
+            <td class="best">0.561</td>
+          </tr>
+          <tr>
+            <td>GPT-4o-mini</td>
+            <td><span class="model-badge closed-badge">Closed</span></td>
+            <td>0.533</td>
+            <td>0.683</td>
+            <td>27.70</td>
+            <td>0.355</td>
+          </tr>
+          <tr>
+            <td>Gemma-3-27b-it</td>
+            <td><span class="model-badge open-badge">Open</span></td>
+            <td>0.637</td>
+            <td>0.768</td>
+            <td>38.83</td>
+            <td>0.324</td>
+          </tr>
+          <tr>
+            <td>Qwen2.5-VL-7B</td>
+            <td><span class="model-badge open-badge">Open</span></td>
+            <td>0.650</td>
+            <td>0.808</td>
+            <td>19.17</td>
+            <td>0.207</td>
+          </tr>
+          <tr>
+            <td>MBZUAI/AIN</td>
+            <td><span class="model-badge open-badge">Open</span></td>
+            <td>0.669</td>
+            <td>0.819</td>
+            <td>22.08</td>
+            <td>0.227</td>
+          </tr>
+          <tr>
+            <td>Qwen2.5-VL-72B</td>
+            <td><span class="model-badge open-badge">Open</span></td>
+            <td>0.697</td>
+            <td>0.859</td>
+            <td>29.26</td>
+            <td>0.243</td>
+          </tr>
+          <tr>
+            <td>InternVL3-8B</td>
+            <td><span class="model-badge open-badge">Open</span></td>
+            <td>0.746</td>
+            <td>0.878</td>
+            <td>10.33</td>
+            <td>0.119</td>
+          </tr>
+          <tr>
+            <td>EasyOCR</td>
+            <td><span class="model-badge open-badge">Open</span></td>
+            <td>0.786</td>
+            <td>1.021</td>
+            <td>7.74</td>
+            <td>0.019</td>
+          </tr>
+          <tr>
+            <td>GPT-4o</td>
+            <td><span class="model-badge closed-badge">Closed</span></td>
+            <td>0.830</td>
+            <td>0.980</td>
+            <td>17.12</td>
+            <td>0.186</td>
+          </tr>
+          <tr>
+            <td>Gemini-1.5-flash</td>
+            <td><span class="model-badge closed-badge">Closed</span></td>
+            <td>0.912</td>
+            <td>1.026</td>
+            <td>41.93</td>
+            <td>0.244</td>
+          </tr>
+          <tr>
+            <td>Claude-Sonnet-4.5</td>
+            <td><span class="model-badge closed-badge">Closed</span></td>
+            <td>0.967</td>
+            <td>1.011</td>
+            <td>33.21</td>
+            <td>0.172</td>
+          </tr>
+          <tr>
+            <td>LLaVA-v1.6-Mistral-7B</td>
+            <td><span class="model-badge open-badge">Open</span></td>
+            <td>0.981</td>
+            <td>1.034</td>
+            <td>5.82</td>
+            <td>0.008</td>
+          </tr>
+          <tr>
+            <td>TrOCR-Arabic</td>
+            <td><span class="model-badge open-badge">Open</span></td>
+            <td>1.012</td>
+            <td>1.156</td>
+            <td>3.41</td>
+            <td>0.002</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Dataset Overview -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Dataset Overview</h2>
+    <div class="content">
+      <div class="columns">
+        <div class="column is-6">
+          <h4 class="title is-5">Data Statistics</h4>
+          <ul>
+            <li><strong>Total Samples:</strong> 1,050+ images</li>
+            <li><strong>Unique Words:</strong> 1,400+</li>
+            <li><strong>Calligraphy Styles:</strong> 6</li>
+            <li><strong>Theme Categories:</strong> Religious & Non-religious</li>
+            <li><strong>Annotations:</strong> Text + Bounding Boxes</li>
+          </ul>
+        </div>
+        <div class="column is-6">
+          <h4 class="title is-5">Evaluation Modes</h4>
+          <ul>
+            <li><strong>Full Image:</strong> Recognize all text in image</li>
+            <li><strong>With BBox:</strong> Recognize text within bounding boxes</li>
+          </ul>
+          <h4 class="title is-5" style="margin-top: 1rem;">Metrics</h4>
+          <ul>
+            <li>Character Error Rate (CER)</li>
+            <li>Word Error Rate (WER)</li>
+            <li>chrF Score</li>
+            <li>Exact Match Accuracy</li>
+            <li>Normalized Levenshtein Distance (NLD)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BibTeX -->
+<section class="section" style="background-color: #f5f5f5;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">BibTeX</h2>
+    <pre>
+@misc{duwatbench2025,
+  title={DuwatBench: Bridging Language and Visual Heritage through an
+         Arabic Calligraphy Benchmark for Multimodal Understanding},
+  author={MBZUAI},
+  year={2025},
+  url={https://github.com/mbzuai-oryx/DuwatBench}
+}
+    </pre>
+  </div>
+</section>
+
+<!-- Contributors -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Contributors</h2>
+    <div class="columns is-multiline is-centered">
+      <div class="column is-2">
+        <div class="contributor-card">
+          <img src="figures/contributors/contributor1.png" class="contributor-img" alt="Contributor">
+          <a href="#"><strong>Contributor 1</strong></a>
+        </div>
+      </div>
+      <div class="column is-2">
+        <div class="contributor-card">
+          <img src="figures/contributors/contributor2.png" class="contributor-img" alt="Contributor">
+          <a href="#"><strong>Contributor 2</strong></a>
+        </div>
+      </div>
+      <div class="column is-2">
+        <div class="contributor-card">
+          <img src="figures/contributors/contributor3.png" class="contributor-img" alt="Contributor">
+          <a href="#"><strong>Contributor 3</strong></a>
+        </div>
+      </div>
+      <div class="column is-2">
+        <div class="contributor-card">
+          <img src="figures/contributors/contributor4.png" class="contributor-img" alt="Contributor">
+          <a href="#"><strong>Contributor 4</strong></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container has-text-centered">
+    <p>
+      <strong>DuwatBench</strong> by <a href="https://mbzuai.ac.ae">MBZUAI</a>.
+      Licensed under <a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a>.
+    </p>
+    <p style="margin-top: 1rem;">
+      <a href="https://github.com/mbzuai-oryx/DuwatBench"><i class="fab fa-github fa-2x"></i></a>
+      &nbsp;&nbsp;
+      <a href="https://huggingface.co/datasets/MBZUAI/DuwatBench"><i class="fas fa-database fa-2x"></i></a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
