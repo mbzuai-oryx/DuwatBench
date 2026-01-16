@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use DuwatBench in your research, please cite it as below."
+authors:
+  - family-names: "MBZUAI"
+    affiliation: "Mohamed bin Zayed University of Artificial Intelligence"
+title: "DuwatBench: Bridging Language and Visual Heritage through an Arabic Calligraphy Benchmark for Multimodal Understanding"
+version: 1.0.0
+date-released: 2025-01-01
+url: "https://github.com/mbzuai-oryx/DuwatBench"
+repository-code: "https://github.com/mbzuai-oryx/DuwatBench"
+license: Apache-2.0
+keywords:
+  - arabic
+  - calligraphy
+  - ocr
+  - benchmark
+  - multimodal
+  - vision-language
+  - nlp
+abstract: >-
+  DuwatBench is a comprehensive benchmark for evaluating multimodal
+  large language models on Arabic calligraphy recognition. It contains
+  1,050+ curated samples spanning 6 classical and modern calligraphic
+  styles with full text transcriptions, style labels, and bounding
+  box annotations.

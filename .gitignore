@@ -1,0 +1,114 @@
+# DuwatBench .gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# API Keys - NEVER commit these!
+src/config/api_keys.py
+api_keys.py
+*.key
+*.secret
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Results and checkpoints (can be large)
+results/
+checkpoints/
+*.json.tmp
+responses/
+
+# Large files
+*.zip
+*.tar.gz
+*.tar
+*.7z
+*.rar
+
+# Model weights (download separately)
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.onnx
+
+# Images (data should be downloaded separately)
+data/images/
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.bmp
+*.tiff
+
+# But keep placeholder files
+!data/.gitkeep
+!docs/assets/.gitkeep
+!docs/figures/.gitkeep
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+
+# Documentation build
+docs/_build/
+site/
