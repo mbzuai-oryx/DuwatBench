@@ -1,54 +1,68 @@
 #!/usr/bin/env python3
 """
 Data loading utilities for DuwatBench
-Loads JSONL data with bounding boxes, styles, and text annotations
+Loads JSON data with styles and text annotations
+
+Supports duwatbench.json format:
+{
+    "image_id": "dwn34.jpg",
+    "Text": ["text1", "text2"],
+    "word_count": [11, 4],
+    "Style": "Diwani",
+    "Category": "quranic",
+    "total_words": 14,
+    "bboxes": [[x, y, w, h], ...]
+}
 """
 
 import json
 import os
 from typing import List, Dict, Optional, Tuple
-from PIL import Image
+from PIL import Image, ImageDraw
 import numpy as np
 
 
 class DuwatBenchDataset:
     """
     Dataset loader for DuwatBench Arabic calligraphy benchmark
-
-    Format from paper (Figure 2):
-    {
-        "image_path": "images/1_4.jpg",
-        "style": "Kufic",
-        "texts": ["مَا شَاءَ ٱللَّهُ لَا قُوَّةَ إِلَّا بِٱللَّهِ"],
-        "word_count": [20],
-        "total_words": [20],
-        "bboxes": [[405, 259, 390, 681]]
-    }
     """
 
-    def __init__(self, jsonl_path: str, images_dir: str):
+    def __init__(self, json_path: str, images_dir: str):
         """
         Args:
-            jsonl_path: Path to data_manifest_flat.jsonl
+            json_path: Path to duwatbench.json
             images_dir: Path to images directory
         """
-        self.jsonl_path = jsonl_path
+        self.json_path = json_path
         self.images_dir = images_dir
         self.samples = []
         self.load_data()
 
     def load_data(self):
-        """Load JSONL data"""
-        print(f"Loading data from {self.jsonl_path}...")
+        """Load JSON data"""
+        print(f"Loading data from {self.json_path}...")
 
-        if not os.path.exists(self.jsonl_path):
-            raise FileNotFoundError(f"JSONL file not found: {self.jsonl_path}")
+        if not os.path.exists(self.json_path):
+            raise FileNotFoundError(f"JSON file not found: {self.json_path}")
 
-        with open(self.jsonl_path, 'r', encoding='utf-8') as f:
-            for line in f:
-                if line.strip():
-                    sample = json.loads(line)
-                    self.samples.append(sample)
+        with open(self.json_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+
+        # Convert to internal format for compatibility
+        for item in data:
+            sample = {
+                'image_id': item['image_id'],
+                'image_path': item['image_id'],
+                'texts': item['Text'],
+                'word_count': item['word_count'],
+                'style': item['Style'],
+                'category': item['Category'],
+                'total_words': item['total_words'],
+                'bboxes': item.get('bboxes', []),
+                'image_width': item.get('image_width'),
+                'image_height': item.get('image_height')
+            }
+            self.samples.append(sample)
 
         print(f"Loaded {len(self.samples)} samples")
 
@@ -59,17 +73,15 @@ class DuwatBenchDataset:
     def get_image(self, idx: int) -> Image.Image:
         """Load image for a sample and convert to RGB if needed"""
         sample = self.samples[idx]
-        image_path = os.path.join(self.images_dir,
-                                 sample['image_path'].replace('images/', ''))
+        image_path = os.path.join(self.images_dir, sample['image_path'])
 
         if not os.path.exists(image_path):
             raise FileNotFoundError(f"Image not found: {image_path}")
 
         image = Image.open(image_path)
 
-        # Convert problematic image modes to RGB
-        # P = palette mode, CMYK = print colors, LA/PA = with alpha
-        if image.mode in ('P', 'CMYK', 'LA', 'PA', 'I', 'F'):
+        # Convert all non-RGB images to RGB for consistent processing
+        if image.mode != 'RGB':
             image = image.convert('RGB')
 
         return image
@@ -77,15 +89,17 @@ class DuwatBenchDataset:
     def get_cropped_regions(self, idx: int) -> List[Tuple[Image.Image, str]]:
         """
         Get cropped text regions using bounding boxes
-        Note: JSONL is pre-sorted by y-coordinate (top to bottom) for proper Arabic reading order
 
         Returns:
             List of tuples (cropped_image, corresponding_text)
         """
         sample = self.samples[idx]
         image = self.get_image(idx)
-        bboxes = sample['bboxes']
+        bboxes = sample.get('bboxes', [])
         texts = sample['texts']
+
+        if not bboxes:
+            return []
 
         cropped_regions = []
         for bbox, text in zip(bboxes, texts):
@@ -96,10 +110,53 @@ class DuwatBenchDataset:
 
         return cropped_regions
 
-    def get_full_text(self, idx: int) -> str:
-        """Get concatenated full text from all text regions
-        Note: JSONL is pre-sorted by y-coordinate (top to bottom) for proper Arabic reading order
+    def has_bboxes(self, idx: int) -> bool:
+        """Check if sample has bounding boxes"""
+        sample = self.samples[idx]
+        return bool(sample.get('bboxes', []))
+
+    def get_image_with_bbox_drawn(self, idx: int, bbox_idx: int,
+                                   colors_rgb: List[Tuple[int, int, int]],
+                                   color_names: List[str]) -> Tuple[Image.Image, str, str]:
         """
+        Get image with specific bbox highlighted
+
+        Args:
+            idx: Sample index
+            bbox_idx: Index of the bbox to draw (0-indexed)
+            colors_rgb: List of RGB color tuples
+            color_names: List of color names (English)
+
+        Returns:
+            Tuple of (image_with_bbox, corresponding_text, color_name)
+        """
+        sample = self.samples[idx]
+        image = self.get_image(idx).copy()
+        bboxes = sample.get('bboxes', [])
+        texts = sample['texts']
+
+        if not bboxes or bbox_idx >= len(bboxes):
+            return image, texts[bbox_idx] if bbox_idx < len(texts) else "", ""
+
+        bbox = bboxes[bbox_idx]
+        text = texts[bbox_idx]
+
+        # Use RED (first color) for single bbox
+        color = colors_rgb[0]
+        color_name = color_names[0]
+
+        x, y, w, h = bbox
+
+        # Draw thick rectangle outline around the bbox
+        draw = ImageDraw.Draw(image)
+        border_width = 10
+        for i in range(border_width):
+            draw.rectangle([x-i, y-i, x+w+i, y+h+i], outline=color)
+
+        return image, text, color_name
+
+    def get_full_text(self, idx: int) -> str:
+        """Get concatenated full text from all text regions"""
         sample = self.samples[idx]
         return ' '.join(sample['texts'])
 
@@ -126,58 +183,21 @@ class DuwatBenchDataset:
         stats = {
             'total_samples': len(self.samples),
             'styles': self.get_style_distribution(),
-            'total_words': sum(s.get('total_words', [0])[0] for s in self.samples),
-            'avg_words_per_sample': np.mean([s.get('total_words', [0])[0] for s in self.samples]),
+            'total_words': sum(s.get('total_words', 0) for s in self.samples),
+            'avg_words_per_sample': np.mean([s.get('total_words', 0) for s in self.samples]),
         }
-
-        # Count samples by word count ranges (from Figure 8)
-        word_count_ranges = {
-            '[01-10]': 0,
-            '[11-20]': 0,
-            '[21-30]': 0,
-            '[31-40]': 0,
-            '[41-50]': 0,
-            '[51-60]': 0,
-            '[61-70]': 0,
-            '[71-80]': 0,
-            '[81-90]': 0
-        }
-
-        for sample in self.samples:
-            total = sum(sample.get('total_words', [0]))
-            if 1 <= total <= 10:
-                word_count_ranges['[01-10]'] += 1
-            elif 11 <= total <= 20:
-                word_count_ranges['[11-20]'] += 1
-            elif 21 <= total <= 30:
-                word_count_ranges['[21-30]'] += 1
-            elif 31 <= total <= 40:
-                word_count_ranges['[31-40]'] += 1
-            elif 41 <= total <= 50:
-                word_count_ranges['[41-50]'] += 1
-            elif 51 <= total <= 60:
-                word_count_ranges['[51-60]'] += 1
-            elif 61 <= total <= 70:
-                word_count_ranges['[61-70]'] += 1
-            elif 71 <= total <= 80:
-                word_count_ranges['[71-80]'] += 1
-            elif 81 <= total <= 90:
-                word_count_ranges['[81-90]'] += 1
-
-        stats['word_count_distribution'] = word_count_ranges
-
         return stats
 
 
-def load_dataset(jsonl_path: str, images_dir: str) -> DuwatBenchDataset:
+def load_dataset(json_path: str, images_dir: str) -> DuwatBenchDataset:
     """
     Convenience function to load dataset
 
     Args:
-        jsonl_path: Path to JSONL manifest
+        json_path: Path to JSON file
         images_dir: Path to images directory
 
     Returns:
         DuwatBenchDataset instance
     """
-    return DuwatBenchDataset(jsonl_path, images_dir)
+    return DuwatBenchDataset(json_path, images_dir)
