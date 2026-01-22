@@ -1,13 +1,17 @@
-<p align="center">
-  <img src="figures/logo.png" alt="DuwatBench Logo" width="200"/>
-</p>
+ <img src='figures/logo.png' align="left" width="11%" />
+ <div style="margin-top:50px;">
+      <h1 style="font-size: 30px; margin: 0;">  DuwatBench: Bridging Language and Visual Heritage through an Arabic Calligraphy Benchmark for Multimodal Understanding [EACL 2026 🔥]</h1>
+ </div>
+   
+   
+ <div  align="center" style="margin-top:10px;"> 
 
-<h1 align="center">DuwatBench</h1>
-<h3 align="center">دواة - معيار الخط العربي</h3>
+<!-- <h1 align="center">DuwatBench</h1> -->
+<h3 align="center">دواة:معيار الخط العربي</h3>
 
-<p align="center">
+<!-- <p align="center">
   <b>Bridging Language and Visual Heritage through an Arabic Calligraphy Benchmark for Multimodal Understanding</b>
-</p>
+</p> -->
 
 <p align="center">
   <a href="#">Shubham Patle</a><sup>1†</sup>,
