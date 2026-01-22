@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="figures/duwatbench_logo.png" alt="DuwatBench Logo" width="200"/>
+  <img src="figures/logo.png" alt="DuwatBench Logo" width="200"/>
 </p>
 
 <h1 align="center">DuwatBench</h1>
