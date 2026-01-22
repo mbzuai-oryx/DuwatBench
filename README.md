@@ -1,23 +1,29 @@
-<p align="center">
-  <img src="figures/duwatbench_logo.png" alt="DuwatBench Logo" width="200"/>
-</p>
+ <img src='figures/logo.png' align="left" width="15%" />
+ <div style="margin-top:50px;">
+      <h1 style="font-size: 30px; margin: 0;">  DuwatBench: Bridging Language and Visual Heritage through an Arabic Calligraphy Benchmark for Multimodal Understanding [EACL 2026 🔥]</h1>
+ </div>
+   
+   
+ <div  align="center" style="margin-top:10px;"> 
 
-<h1 align="center">DuwatBench</h1>
-<h3 align="center">دواة - معيار الخط العربي</h3>
+<!-- <h1 align="center">DuwatBench</h1> -->
+<!-- <h3 align="center">دواة:معيار الخط العربي</h3> -->
 
-<p align="center">
+<!-- <p align="center">
   <b>Bridging Language and Visual Heritage through an Arabic Calligraphy Benchmark for Multimodal Understanding</b>
-</p>
+</p> -->
 
-<p align="center">
-  <a href="#">Shubham Patle</a><sup>1†</sup>,
-  <a href="#">Sara Ghaboura</a><sup>1†</sup>,
-  <a href="#">Hania Tariq</a><sup>2</sup>,
-  <a href="#">Mohammad Usman Khan</a><sup>3</sup>,
-  <a href="https://omkarthawakar.github.io/">Omkar Thawakar</a><sup>1</sup>,
-  <a href="https://scholar.google.fi/citations?user=_KlvMVoAAAAJ&hl=en">Rao Muhammad Anwer</a><sup>1</sup>,
-  <a href="https://salman-h-khan.github.io/">Salman Khan</a><sup>1,4</sup>
-</p>
+
+  [Shubham Patle](https://github.com/shubhamrpatle) <sup>1* </sup> &nbsp;
+  [Sara Ghaboura](https://huggingface.co/SLMLAH) <sup>1* </sup> &nbsp;
+  [Hania Tariq](https://huggingface.co/) <sup>2 </sup> &nbsp;
+  [Mohammad Usman Khan](https://huggingface.co/) <sup>3 </sup> &nbsp;
+  <br>
+ [Omkar Thawakar](https://omkarthawakar.github.io)  <sup>1 </sup>&nbsp;
+ [Rao M. Anwer](https://scholar.google.com/citations?hl=en&user=_KlvMVoAAAAJ) <sup>1</sup>&nbsp;
+ [Salman Khan](https://scholar.google.com/citations?hl=en&user=M59O9lkAAAAJ) <sup>1,4 </sup>
+  <br>
+  <br>  
 
 <p align="center">
   <sup>1</sup>Mohamed bin Zayed University of AI &nbsp;&nbsp;
@@ -26,60 +32,113 @@
   <sup>4</sup>Australian National University
 </p>
 
-<p align="center">
-  <sup>†</sup>Equal Contribution
-</p>
+
+  [![arXiv](https://img.shields.io/badge/arXiv-2502.14865-FA7758)](https://arxiv.org/abs/2502.14865)
+  [![Our Page](https://img.shields.io/badge/Visit-Our%20Page-FA9B58?style=flat)](https://mbzuai-oryx.github.io/TimeTravel/)
+  [![GitHub issues](https://img.shields.io/github/issues/mbzuai-oryx/DuwatBench?color=FAD358&label=issues&style=flat)](https://github.com/mbzuai-oryx/DuwatBench/issues)
+  [![GitHub stars](https://img.shields.io/github/stars/mbzuai-oryx/DuwatBench?color=FAED58&style=flat)](https://github.com/mbzuai-oryx/DuwatBench/stargazers)
+  [![GitHub license](https://img.shields.io/github/license/mbzuai-oryx/DuwatBench?color=CDCDCD)](https://github.com/mbzuai-oryx/DuwatBench/blob/main/LICENSE)
+  <br>
+  <em> <sup> *Equal Contribution  </sup> </em>
+  <br>
+</div>
+
 
 <p align="center">
-  <a href="https://arxiv.org/abs/XXXX.XXXXX"><img src="https://img.shields.io/badge/arXiv-Paper-red.svg" alt="arXiv"></a>
-  <a href="https://huggingface.co/datasets/MBZUAI/DuwatBench"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-yellow" alt="HuggingFace"></a>
-  <a href="https://mbzuai-oryx.github.io/DuwatBench/"><img src="https://img.shields.io/badge/Project-Page-blue" alt="Project Page"></a>
-  <a href="#license"><img src="https://img.shields.io/badge/License-Apache%202.0-green.svg" alt="License"></a>
-</p>
+    <img src="figures/line.png"  height="9px">
+</p> 
+
+ 
+<div align="center">
+ <b> If you like our project, please give us a star ⭐ on GitHub for the latest update. </b><br>
+</div>
+<br>
+<p align="center">
+    <img src="figures/line.png" height="9px">
+</p> 
+<br>
+<br>
+
+##  <img src="https://github.com/user-attachments/assets/1abcf195-ad44-4500-a14b-f1a4bef9b748" width="40" height="40" />Latest Updates
+ 🔥🔥 **[04 Jan 2026]** 🔥🔥 DuwatBench accepted to EACL 2026 Main track.<br>
+ 🔥  **[22 Jan 2026]** DuwatBench the open-source Arabic Calligraphy Benchmark for Multimodal Understanding is released.<br>
+ 🤗  **[23 Jan 2026]** DuwatBench dataset available on [HuggingFace](https://huggingface.co/datasets/MBZUAI/TimeTravel).<br>
+
+<br>
 
 ---
+<br>
 
-## Overview
+## <img src="figures/logo.png" width="40" height="40" alt="hourg_logo"> Overview
 
-**DuwatBench** is a comprehensive benchmark for evaluating multimodal large language models (LMMs) on Arabic calligraphy recognition. Arabic calligraphy represents one of the richest visual traditions of the Arabic language, blending linguistic meaning with artistic form. DuwatBench addresses the gap in evaluating how well modern AI systems can process stylized Arabic text.
+**DuwatBench** is a comprehensive benchmark for evaluating LMMs on Arabic calligraphy recognition. Arabic calligraphy represents one of the richest visual traditions of the Arabic language, blending linguistic meaning with artistic form. DuwatBench addresses the gap in evaluating how well modern AI systems can process stylized Arabic text.
+<br>
+<div style="display: flex; justify-content: space-between; align="center;">
+    <figure style="width: 40%;">
+      &emsp;&emsp;
+     <img src="figures/style_stat.png" alt="Figure 1" style="width: 40%; height: auto;"> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+     <img src="figures/cat_stat.png" alt="Figure 2" style="width: 40%; height: auto;">
+    </figure>
+</div>
+<br>
+<h6><em>  <b>Figure 1.</b> Figure 1. Left: Proportional breakdown of calligraphic styles in the DuwatBench dataset. Right: Proportional breakdown of textual categories, covering religious and non-religious themes.
+</em> 
+</h6>
+</p> 
 
-<p align="center">
-  <img src="figures/teaser.png" alt="DuwatBench Teaser" width="800"/>
-</p>
+---
+<br>
 
-### Key Features
-
+ ## 🌟 Key Features
+### **Key Features of TimeTravel**  
 - **1,272 curated samples** spanning 6 classical and modern calligraphic styles
-- **~1,475 unique words** across religious and cultural domains
+- **Over 9.5k word instances with approximately 1,475 unique words** spanning religious and cultural domains
 - **Bounding box annotations** for detection-level evaluation
 - **Full text transcriptions** with style and theme labels
 - **Complex artistic backgrounds** preserving real-world visual complexity
 
-### Calligraphic Styles
+---
+<br>
 
-| Style | Arabic | Samples | Description |
-|-------|--------|---------|-------------|
-| **Thuluth** | الثلث | 706 (55%) | Ornate script used in mosque decorations |
-| **Diwani** | الديواني | 230 (18%) | Flowing Ottoman court script |
-| **Naskh** | النسخ | 110 (9%) | Standard readable script |
-| **Kufic** | الكوفي | 83 (7%) | Geometric angular early Arabic script |
-| **Ruq'ah** | الرقعة | 76 (6%) | Modern everyday handwriting |
-| **Nasta'liq** | النستعليق | 67 (5%) | Persian-influenced flowing script |
+## <img src="https://github.com/user-attachments/assets/a560eb5d-9850-41fb-8eae-76cad05f9a61" width="35" height="35" alt="pipeline">  DuwatBench Creation Pipeline
+The DuwatBench dataset follows a structured pipeline to ensure the accuracy, completeness, and contextual richness by style and categry.<br>
 
-### Thematic Categories
+<p align="center">
+   <img src="figures/pipeline.png" width="2600px" height="300px" alt="pipeline"  style="margin-right: 2px";/>
+    <h6>
+       <em>  <b>Figure 2. End-to-end pipeline for constructing DuwatBench, from data collection and manual transcription with bounding boxes to multi-tier verification and style/theme aggregation.</b>  </em>
+    </h6>
+ 
+---
+<br>
 
-| Category | Percentage |
-|----------|------------|
-| Quranic | 44% |
-| Devotional/Hadith | 28% |
-| Non-religious/Dedication | 11% |
-| Names of Allah | 8% |
-| Names of Prophet/Companions | 6% |
-| Personal/Place Names | 3% |
+## <img  src="https://github.com/user-attachments/assets/a3b4589c-a830-4881-88e7-53994a695290" width="40" height="40" alt="duwat_logo"> Calligraphic Styles
+
+
+| Style | Arabic | Description |
+|-------|--------|-------------|
+| **Thuluth** | الثلث | Ornate script used in mosque decorations |
+| **Diwani** | الديواني | Flowing Ottoman court script |
+| **Naskh** | النسخ | Standard readable script |
+| **Kufic** | الكوفي | Geometric angular early Arabic script |
+| **Ruq'ah** | الرقعة| Modern everyday handwriting |
+| **Nasta'liq** | النستعليق| Persian-influenced flowing script |
 
 ---
+<br>
 
-## Installation
+## 🧐 DuwatBench Dataset Examples
+
+<p align="center">
+   <img src="figures/samples.png" width="2600px" height="600px" alt="pipeline"  style="margin-right: 2px";/>
+    <h6>
+       <em>  <b>Figure 2. End-to-end pipeline for constructing DuwatBench, from data collection and manual transcription with bounding boxes to multi-tier verification and style/theme aggregation.</b>  </em>
+    </h6>
+
+---
+<br>
+
+## <img  src="https://github.com/user-attachments/assets/af470ecf-8b38-4ec1-87cb-9cc0d02d4a0b" width="40" height="40" alt="duwat_logo"> Installation
 
 ### Requirements
 
@@ -116,10 +175,11 @@ export ANTHROPIC_API_KEY="your-key"
 cp src/config/api_keys.example.py src/config/api_keys.py
 # Edit api_keys.py with your keys
 ```
-
 ---
+<br>
 
-## Dataset
+
+## <img  src="https://github.com/user-attachments/assets/8a9df38f-1830-4359-86cd-ed95fc3b39dd"  width="40" height="40" alt="data"> Dataset
 
 ### Download
 
@@ -148,24 +208,10 @@ Each sample in the JSON manifest contains:
 }
 ```
 
-### Dataset Statistics
-
-| Category | Count |
-|----------|-------|
-| Total Samples | 1,272 |
-| Unique Words | ~1,475 |
-| Calligraphy Styles | 6 |
-| Quranic | 44% |
-| Devotional/Hadith | 28% |
-| Non-religious/Dedication | 11% |
-| Names of Allah | 8% |
-| Names of Prophet/Companions | 6% |
-
 ---
+<br>
 
-## Evaluation
-
-### Quick Start
+## <img src="https://github.com/user-attachments/assets/c3285d8f-7659-4d7b-8f7e-ffda9b7b2758" width="40" height="40" alt="hourg_logo"> Evaluation (Quick Start)
 
 ```bash
 # Evaluate a single model
@@ -181,30 +227,10 @@ python src/evaluate.py --model EasyOCR --mode both
 python src/evaluate.py --model claude-sonnet-4.5 --mode full_image --resume
 ```
 
-### Supported Models (13 Total)
-
-#### Open-Source (8)
-| Model | CER ↓ | WER ↓ | chrF ↑ | ExactMatch ↑ | NLD ↓ |
-|-------|-------|-------|--------|--------------|-------|
-| MBZUAI/AIN* | 0.5494 | 0.6912 | 42.67 | 0.1895 | 0.5134 |
-| Gemma-3-27B-IT | 0.5556 | 0.6591 | 51.53 | 0.2398 | 0.4741 |
-| Qwen2.5-VL-72B | 0.5709 | 0.7039 | 43.98 | 0.1761 | 0.5298 |
-| Qwen2.5-VL-7B | 0.6453 | 0.7768 | 36.97 | 0.1211 | 0.5984 |
-| InternVL3-8B | 0.7588 | 0.8822 | 21.75 | 0.0574 | 0.7132 |
-| EasyOCR | 0.8538 | 0.9895 | 12.30 | 0.0031 | 0.8163 |
-| TrOCR-Arabic* | 0.9728 | 0.9998 | 1.79 | 0.0000 | 0.9632 |
-| LLaVA-v1.6-Mistral-7B | 0.9932 | 0.9998 | 9.16 | 0.0000 | 0.9114 |
-
-#### Closed-Source (5)
-| Model | CER ↓ | WER ↓ | chrF ↑ | ExactMatch ↑ | NLD ↓ |
-|-------|-------|-------|--------|--------------|-------|
-| **Gemini-2.5-flash** | **0.3700** | **0.4478** | **71.82** | **0.4167** | **0.3166** |
-| Gemini-1.5-flash | 0.3933 | 0.5112 | 63.28 | 0.3522 | 0.3659 |
-| GPT-4o | 0.4766 | 0.5692 | 56.85 | 0.3388 | 0.4245 |
-| GPT-4o-mini | 0.6039 | 0.7077 | 42.67 | 0.2115 | 0.5351 |
-| Claude-Sonnet-4.5 | 0.6494 | 0.7255 | 42.97 | 0.2225 | 0.5599 |
-
-*\* Arabic-specific models*
+---
+<br>
+ 
+##  🎯 Quantitative Evaluation and Results
 
 ### Evaluation Metrics
 
@@ -216,17 +242,29 @@ python src/evaluate.py --model claude-sonnet-4.5 --mode full_image --resume
 | **ExactMatch** | Strict full-sequence accuracy |
 | **NLD** | Normalized Levenshtein Distance - balanced error measure |
 
----
 
-## Results
+### Open-Source Models 
+| Model | CER ↓ | WER ↓ | chrF ↑ | ExactMatch ↑ | NLD ↓ |
+|-------|-------|-------|--------|--------------|-------|
+| MBZUAI/AIN* | 0.5494 | 0.6912 | 42.67 | 0.1895 | 0.5134 |
+| Gemma-3-27B-IT | 0.5556 | 0.6591 | 51.53 | 0.2398 | 0.4741 |
+| Qwen2.5-VL-72B | 0.5709 | 0.7039 | 43.98 | 0.1761 | 0.5298 |
+| Qwen2.5-VL-7B | 0.6453 | 0.7768 | 36.97 | 0.1211 | 0.5984 |
+| InternVL3-8B | 0.7588 | 0.8822 | 21.75 | 0.0574 | 0.7132 |
+| EasyOCR | 0.8538 | 0.9895 | 12.30 | 0.0031 | 0.8163 |
+| TrOCR-Arabic* | 0.9728 | 0.9998 | 1.79 | 0.0000 | 0.9632 |
+| LLaVA-v1.6-Mistral-7B | 0.9932 | 0.9998 | 9.16 | 0.0000 | 0.9114 |
 
-### Key Findings
+### Closed-Source Models
+| Model | CER ↓ | WER ↓ | chrF ↑ | ExactMatch ↑ | NLD ↓ |
+|-------|-------|-------|--------|--------------|-------|
+| **Gemini-2.5-flash** | **0.3700** | **0.4478** | **71.82** | **0.4167** | **0.3166** |
+| Gemini-1.5-flash | 0.3933 | 0.5112 | 63.28 | 0.3522 | 0.3659 |
+| GPT-4o | 0.4766 | 0.5692 | 56.85 | 0.3388 | 0.4245 |
+| GPT-4o-mini | 0.6039 | 0.7077 | 42.67 | 0.2115 | 0.5351 |
+| Claude-Sonnet-4.5 | 0.6494 | 0.7255 | 42.97 | 0.2225 | 0.5599 |
 
-- **Gemini-2.5-flash** achieves the best overall performance with 41.67% exact match accuracy
-- Models perform best on **Naskh** and **Ruq'ah** (standardized strokes)
-- **Diwani** and **Thuluth** (ornate scripts with dense ligatures) remain challenging
-- **Kufic** records the lowest scores due to geometric rigidity
-- Bounding box localization improves performance across most models
+<em> *\* Arabic-specific models* </em>
 
 ### Per-Style WER Performance (Full Image)
 
@@ -236,23 +274,34 @@ python src/evaluate.py --model claude-sonnet-4.5 --mode full_image --resume
 | Gemini-1.5-flash | 0.7212 | 0.4741 | 0.5783 | 0.4444 | 0.5445 | 0.5023 |
 | GPT-4o | 0.8041 | 0.5540 | 0.6370 | 0.4189 | 0.5507 | 0.4434 |
 | Gemma-3-27B-IT | 0.7802 | 0.6315 | 0.7326 | 0.5138 | 0.7571 | 0.6637 |
-| MBZUAI/AIN | 0.7916 | 0.7036 | 0.7130 | 0.5367 | 0.6111 | 0.6916 |
+| MBZUAI/AIN | 0.7916 | 0.7036 | 0.7130 | 0.5367 | 0.6111 | 0.6916 
 
-### Statistical Analysis
+### Key Findings
 
-| Metric | Mean | Std | Min | Max | Range |
-|--------|------|-----|-----|-----|-------|
-| CER | 0.6456 | 0.1993 | 0.3700 | 0.9932 | 62.7% |
-| WER | 0.7434 | 0.1819 | 0.4478 | 0.9998 | 55.2% |
-| NLD | 0.5940 | 0.2017 | 0.3166 | 0.9632 | 67.1% |
-| chrF | 38.29 | 21.39 | 1.79 | 71.82 | 70.02 |
-| ExactMatch | 0.2175 | 0.1390 | 0.0000 | 0.4167 | 0.42 |
-
-**t-test (Open vs Closed):** All metrics show statistically significant differences (p < 0.05), with closed-source models outperforming open-source across all metrics.
+- **Gemini-2.5-flash** achieves the best overall performance with 41.67% exact match accuracy
+- Models perform best on **Naskh** and **Ruq'ah** (standardized strokes)
+- **Diwani** and **Thuluth** (ornate scripts with dense ligatures) remain challenging
+- **Kufic** records the lowest scores due to geometric rigidity
+- Bounding box localization improves performance across most models
 
 ---
+<br>
 
-## Project Structure
+
+##  <img src="https://github.com/user-attachments/assets/e8e2980a-ab6d-4b71-8906-c385e0c4d19e"  width="40" height="40" alt="hourg_logo"> Qulaitative Evaluation and Results
+
+<p align="center">
+   <img src="figures/qualitative.png" width="2550px" height="750px" alt="pipeline"  style="margin-right: 2px";/>
+    <h6>
+       <em>  <b>Figure 3. Qualitative results comparing open- and closed-source models on DuwatBench calligraphy samples.</b>  </em>
+    </h6>
+
+
+---
+<br>
+
+
+## <img src="https://github.com/user-attachments/assets/f96214d4-5aa2-4424-aca2-82519a1951bf"  width="40" height="40" alt="hourg_logo"> Project Structure
 
 ```
 DuwatBench/
@@ -262,7 +311,7 @@ DuwatBench/
 ├── LICENSE
 ├── CITATION.cff
 ├── data/
-│   ├── images/                    # Calligraphy images
+│   ├── images/                   # Calligraphy images
 │   └── duwatbench.json           # Dataset manifest
 ├── src/
 │   ├── evaluate.py               # Main evaluation script
@@ -279,14 +328,16 @@ DuwatBench/
 ├── scripts/
 │   ├── download_data.sh
 │   └── run_all_evaluations.sh
-└── results/                       # Evaluation outputs
+└── results/                      # Evaluation outputs
 ```
 
 ---
+<br>
 
-## Citation
+## 📚 Citation
 
-If you use DuwatBench in your research, please cite our paper:
+If you use DuwatBench dataset in your research, please consider citing:
+
 
 ```bibtex
 @article{duwatbench2025,
@@ -301,16 +352,18 @@ If you use DuwatBench in your research, please cite our paper:
 ```
 
 ---
+<br>
 
-## License
+## ⚖️ License
 
 This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
 
 The dataset images are sourced from public digital archives and community repositories under their respective licenses.
 
 ---
+<br>
 
-## Acknowledgments
+## <img src="https://github.com/user-attachments/assets/54d3d74f-38a3-4c72-abac-4866cf09a165" width="40" height="40" alt="acknowledge"> Acknowledgments
 
 - Digital archives: [Library of Congress](https://www.loc.gov/collections/), [NYPL Digital Collections](https://digitalcollections.nypl.org/)
 - Community repositories: [Calligraphy Qalam](https://calligraphyqalam.com/), [Free Islamic Calligraphy](https://freeislamiccalligraphy.com/), [Pinterest](https://www.pinterest.com/)
@@ -318,17 +371,19 @@ The dataset images are sourced from public digital archives and community reposi
 - Arabic NLP tools: [CAMeL Tools](https://github.com/CAMeL-Lab/camel_tools)
 
 ---
+<br>
 
-## Contact
+## <img src="https://github.com/user-attachments/assets/c3dea994-6370-4030-951b-673385d1504a" width="40" height="40" alt="contact"> Contact
 
 For questions or issues, please:
 - Open an issue on [GitHub](https://github.com/mbzuai-oryx/DuwatBench/issues)
 - Contact the authors at: {shubham.patle, sara.ghaboura, omkar.thawakar}@mbzuai.ac.ae
 
+
 ---
 
 <p align="center">
-  <a href="https://mbzuai.ac.ae"><img src="figures/mbzuai_logo.png" height="50" alt="MBZUAI"></a>
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="https://github.com/mbzuai-oryx"><img src="figures/oryx_logo.png" height="50" alt="Oryx"></a>
+   <img src="figures/IVAL_logo.png" width="18%" style="display: inline-block; margin: 0 10px;" />
+   <img src="figures/Oryx_logo.jpeg" width="10%" style="display: inline-block; margin: 0 10px;" />
+   <img src="figures/MBZUAI_Logo_EN_Blue_CMYK.jpg" width="30%" style="display: inline-block; margin: 0 10px;" />
 </p>
