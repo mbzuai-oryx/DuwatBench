@@ -83,7 +83,7 @@
 
 ### Requirements
 
-- Python 3.8+
+- Python 3.10+
 - CUDA-compatible GPU (recommended for open-source models)
 
 ### Setup
