@@ -1,4 +1,4 @@
- <img src='figures/logo.png' align="left" width="11%" />
+ <img src='figures/logo.png' align="left" width="15%" />
  <div style="margin-top:50px;">
       <h1 style="font-size: 30px; margin: 0;">  DuwatBench: Bridging Language and Visual Heritage through an Arabic Calligraphy Benchmark for Multimodal Understanding [EACL 2026 🔥]</h1>
  </div>
