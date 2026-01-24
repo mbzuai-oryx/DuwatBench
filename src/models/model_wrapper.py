@@ -559,10 +559,8 @@ class GeminiModel(BaseModel):
             from google import genai
             self.client = genai.Client(api_key=self.api_key)
             # Model names need 'models/' prefix for the API
-            # Note: gemini-1.5-flash has been deprecated, use 2.0 or 2.5 instead
             if model_version == "1.5-flash":
-                print("WARNING: gemini-1.5-flash is deprecated. Using gemini-2.0-flash instead.")
-                model_version = "2.0-flash"
+                model_version = "1.5-flash"
                 model_name = f"gemini-{model_version}"
             self.model_id = f"models/{model_name}"
         except ImportError:
