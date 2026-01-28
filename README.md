@@ -33,8 +33,8 @@
 </p>
 
 
-  [![arXiv](https://img.shields.io/badge/arXiv-2502.14865-FA7758)](https://arxiv.org/abs/2502.14865)
-  [![Our Page](https://img.shields.io/badge/Visit-Our%20Page-FA9B58?style=flat)](https://mbzuai-oryx.github.io/TimeTravel/)
+  [![arXiv](https://img.shields.io/badge/arXiv-2601.19898-FA7758)](https://arxiv.org/abs/2601.19898)
+  [![Our Page](https://img.shields.io/badge/Visit-Our%20Page-FA9B58?style=flat)](https://mbzuai-oryx.github.io/DuwatBench/)
   [![GitHub issues](https://img.shields.io/github/issues/mbzuai-oryx/DuwatBench?color=FAD358&label=issues&style=flat)](https://github.com/mbzuai-oryx/DuwatBench/issues)
   [![GitHub stars](https://img.shields.io/github/stars/mbzuai-oryx/DuwatBench?color=FAED58&style=flat)](https://github.com/mbzuai-oryx/DuwatBench/stargazers)
   [![GitHub license](https://img.shields.io/github/license/mbzuai-oryx/DuwatBench?color=CDCDCD)](https://github.com/mbzuai-oryx/DuwatBench/blob/main/LICENSE)
@@ -340,14 +340,14 @@ If you use DuwatBench dataset in your research, please consider citing:
 
 
 ```bibtex
-@article{duwatbench2025,
-  title={DuwatBench: Bridging Language and Visual Heritage through an
-         Arabic Calligraphy Benchmark for Multimodal Understanding},
-  author={Patle, Shubham and Ghaboura, Sara and Tariq, Hania and
-          Khan, Mohammad Usman and Thawakar, Omkar and
-          Anwer, Rao Muhammad and Khan, Salman},
-  journal={arXiv preprint arXiv:XXXX.XXXXX},
-  year={2025}
+@misc{patle2026duwatbench,
+      title={DuwatBench: Bridging Language and Visual Heritage through an Arabic Calligraphy Benchmark for Multimodal Understanding}, 
+      author={Shubham Patle and Sara Ghaboura and Hania Tariq and Mohammad Usman Khan and Omkar Thawakar and Rao Muhammad Anwer and Salman Khan},
+      year={2026},
+      eprint={2601.19898},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2601.19898},
 }
 ```
 
